@@ -4,7 +4,8 @@
   "description": "Uri Baynesay portfolio website",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsx index.ts",
+    "start": "tsx index.ts",
+    "dev": "tsx watch index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Uri Baynesay",
