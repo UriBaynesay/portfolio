@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProjectService } from '../service/project/project.service';
 import { Project } from '../interfaces/project';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-project-list',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss',
 })
