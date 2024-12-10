@@ -1,4 +1,9 @@
-<section class="h-full">
-    <p>home works!</p>
-</section>
-
+<div class="md:mx-80">
+  <app-hero />
+  @defer {
+  <app-project-list />
+  }
+  @loading{
+    <h1>Loading projects</h1>
+  }
+</div>
