@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ProjectService } from '../service/project/project.service';
-import { Project } from '../interfaces/project';
 import { NgOptimizedImage } from '@angular/common'
+import { ProjectService } from '../../service/project/project.service'
+import { Project } from '../../interfaces/project'
 
 @Component({
   selector: 'app-project-list',
