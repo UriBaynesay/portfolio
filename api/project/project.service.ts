@@ -6,12 +6,14 @@ export const create = async (
   tags: string[],
   description: string,
   hero_url: string,
-  images_urls: string[]
+  images_urls: string[],
+  link: string,
+  github: string
 ): Promise<ServiceResult> => {
   const prisma = new PrismaClient()
   try {
     await prisma.project.create({
-      data: { title, tags, description, hero_url, images_urls },
+      data: { title, tags, description, hero_url, images_urls, github, link },
     })
     return { type: "ok", data: "Project added to the database." }
   } catch (error) {
@@ -45,13 +47,15 @@ export const update = async (
   tags?: string[],
   description?: string,
   hero_url?: string,
-  images_urls?: string[]
+  images_urls?: string[],
+  github?: string,
+  link?: string
 ): Promise<ServiceResult> => {
   const prisma = new PrismaClient()
   try {
     await prisma.project.update({
       where: { id },
-      data: { title, tags, description, hero_url, images_urls },
+      data: { title, tags, description, hero_url, images_urls, github, link },
     })
     return { type: "ok", data: "Project was edited." }
   } catch (error) {

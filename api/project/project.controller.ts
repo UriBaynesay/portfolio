@@ -3,9 +3,17 @@ import { create, read, remove, update } from "./project.service.js"
 import { Request, Response } from "express"
 
 export const createProject = async (req: Request, res: Response) => {
-  const { title, tags, description, hero_url, images_urls } =
+  const { title, tags, description, hero_url, images_urls, link, github } =
     req.body as Project
-  const result = await create(title, tags, description, hero_url, images_urls)
+  const result = await create(
+    title,
+    tags,
+    description,
+    hero_url,
+    images_urls,
+    link,
+    github
+  )
   if (result.type === "ok") res.status(200).send(result.data)
   else res.status(500).send(result.data)
 }
@@ -19,7 +27,7 @@ export const getProjects = async (req: Request, res: Response) => {
 
 export const updateProject = async (req: Request, res: Response) => {
   const { id } = req.params
-  const { title, tags, description, hero_url, images_urls } =
+  const { title, tags, description, hero_url, images_urls, github, link } =
     req.body as Project
   const result = await update(
     id,
@@ -27,7 +35,9 @@ export const updateProject = async (req: Request, res: Response) => {
     tags,
     description,
     hero_url,
-    images_urls
+    images_urls,
+    github,
+    link
   )
   if (result.type === "ok") res.status(200).send(result.data)
   else res.status(500).send(result.data)
