@@ -1,18 +1,23 @@
 <section id="project-list" class="mt-28 md:px-20">
   <ul>
     @for (project of projects; track project.id) {
-    <li class="mt-8 md:flex md:justify-center md:gap-8">
+    <li class="mt-28 md:flex md:justify-between md:gap-8">
       <section class="max-w-md">
         <h1 class="font-bold text-xl">{{ project.title }}</h1>
         <p>{{ project.description }}</p>
+        <ul class="mt-6 flex gap-4 items-end">
+          @for (tag of project.tags; track tag) {
+          <li><img [ngSrc]="'/images/' + tag + '.svg'" [alt]="tag+' icon'" height="32" width="32"/></li>
+          }
+        </ul>
       </section>
-      <section>
+      <section class="mt-6 md:mt-0">
         <img
-          class="md:rounded-xl shadow-lg"
+          class="md:rounded-xl md:shadow-lg"
           [ngSrc]="project.hero_url"
           alt="Project image hero"
-          height="420"
-          width="830"
+          height="340"
+          width="600"
         />
       </section>
     </li>
