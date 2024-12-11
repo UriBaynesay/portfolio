@@ -1,4 +1,4 @@
-<section class="mt-16 md:px-20">
+<section id="project-list" class="mt-28 md:px-20">
   <ul>
     @for (project of projects; track project.id) {
     <li class="mt-8 md:flex md:justify-center md:gap-8">
@@ -8,7 +8,7 @@
       </section>
       <section>
         <img
-          class="rounded-xl"
+          class="md:rounded-xl"
           [ngSrc]="project.hero_url"
           alt="Project image hero"
           height="420"
