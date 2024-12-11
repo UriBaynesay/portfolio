@@ -1,4 +1,4 @@
-<header class="mt-12 flex justify-center gap-8">
+<header class="flex justify-center gap-8">
   @for (navLink of navLinks; track navLink.path) {
   @if(navLink.path.includes('#')) {
   <a class="font-semibold text-lg" [href]="navLink.path">{{
