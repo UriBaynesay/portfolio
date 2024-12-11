@@ -2,8 +2,9 @@
   <app-hero />
   @defer {
   <app-project-list />
-  }
-  @loading{
-    <h1>Loading projects</h1>
+  } @loading{
+  <div class="flex justify-center">
+    <mat-progress-spinner mode="indeterminate" />
+  </div>
   }
 </div>

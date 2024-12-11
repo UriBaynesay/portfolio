@@ -5,4 +5,6 @@ export interface Project {
   description: string;
   hero_url: string;
   images_urls: string[];
+  link: string;
+  github: string;
 }
