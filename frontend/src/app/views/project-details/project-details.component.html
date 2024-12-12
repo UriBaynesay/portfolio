@@ -1,0 +1,64 @@
+<div class="md:mx-80">
+  <section class="max-w-sm">
+    <h1 class="font-bold text-xl">{{ project.title }}</h1>
+    <p>{{ project.description }}</p>
+    <ul class="mt-6 flex gap-4 items-end">
+      @for (tag of project.tags; track tag) {
+      <li>
+        <img
+          [ngSrc]="'/images/' + tag + '.svg'"
+          [alt]="tag + ' icon'"
+          height="32"
+          width="32"
+        />
+      </li>
+      }
+    </ul>
+    <div class="flex gap-3 mt-6">
+      <a [href]="project.link" target="_blank"
+        ><img
+          ngSrc="/images/website.svg"
+          alt="Website link"
+          height="24"
+          width="24"
+      /></a>
+      <a [href]="project.github" target="_blank"
+        ><img
+          ngSrc="/images/github.svg"
+          alt="Website link"
+          height="24"
+          width="24"
+      /></a>
+    </div>
+  </section>
+  <ul class="flex flex-col items-center">
+    <img
+      class="md:rounded-xl md:shadow-lg"
+      [ngSrc]="project.hero_url"
+      alt="Project image hero"
+      height="380"
+      width="680"
+    />
+    @for (projectImage of project.images_urls; track projectImage) {
+    <li class="mt-12">
+      @if (projectImage.includes("mobile")) {
+      <img
+        class="bg-white px-1 rounded-xl shadow-lg"
+        [ngSrc]="projectImage"
+        alt="Project image hero"
+        height="527"
+        width="305"
+      />
+      }@else {
+      <img
+        class="md:rounded-xl md:shadow-lg"
+        [ngSrc]="projectImage"
+        alt="Project image hero"
+        height="340"
+        width="600"
+      />
+      }
+    </li>
+    }
+  </ul>
+</div>

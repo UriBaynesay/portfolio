@@ -1,5 +1,5 @@
 import { Project } from "@prisma/client"
-import { create, read, remove, update } from "./project.service.js"
+import { create, projectById, read, remove, update } from "./project.service.js"
 import { Request, Response } from "express"
 
 export const createProject = async (req: Request, res: Response) => {
@@ -46,6 +46,13 @@ export const updateProject = async (req: Request, res: Response) => {
 export const removeProject = async (req: Request, res: Response) => {
   const { id } = req.params
   const result = await remove(id)
+  if (result.type === "ok") res.status(200).send(result.data)
+  else res.status(500).send(result.data)
+}
+
+export const getProjectById = async (req: Request, res: Response) => {
+  const { id } = req.params as { id: string }
+  const result = await projectById(id)
   if (result.type === "ok") res.status(200).send(result.data)
   else res.status(500).send(result.data)
 }

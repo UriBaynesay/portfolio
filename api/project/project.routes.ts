@@ -1,6 +1,7 @@
 import { Router } from "express"
 import {
   createProject,
+  getProjectById,
   getProjects,
   removeProject,
   updateProject,
@@ -12,3 +13,4 @@ projectRoutes.post("", createProject)
 projectRoutes.get("", getProjects)
 projectRoutes.put("/:id", updateProject)
 projectRoutes.delete("/:id", removeProject)
+projectRoutes.get("/:id", getProjectById)
