@@ -34,7 +34,6 @@ export const read = async (text = ""): Promise<ServiceResult> => {
       },
     })
     // @ts-ignore
-    projects.forEach((project) => delete project.id)
     return { type: "ok", data: projects }
   } catch (error) {
     return { type: "fail", data: error }
@@ -70,6 +69,20 @@ export const remove = async (id: string): Promise<ServiceResult> => {
       where: { id },
     })
     return { type: "ok", data: "Project was deleted." }
+  } catch (error) {
+    return { type: "fail", data: error }
+  }
+}
+
+export const projectById = async (id: string): Promise<ServiceResult> => {
+  const prisma = new PrismaClient()
+  try {
+    const project = await prisma.project.findFirst({
+      where: {
+        id,
+      },
+    })
+    return { type: "ok", data: project }
   } catch (error) {
     return { type: "fail", data: error }
   }
