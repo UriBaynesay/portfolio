@@ -8,9 +8,9 @@ import { Project } from '../../interfaces/project';
 export class ProjectService {
   http = inject(HttpClient);
   getProjects = () => {
-    return this.http.get<Project[]>('http://localhost:3000/api/project');
+    return this.http.get<Project[]>('/api/project');
   };
   getProjectById = (id: string) => {
-    return this.http.get<Project>('http://localhost:3000/api/project/' + id);
+    return this.http.get<Project>('/api/project/' + id);
   };
 }
