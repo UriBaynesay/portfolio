@@ -3,8 +3,8 @@ import { create, projectById, read, remove, update } from "./project.service.js"
 import { Request, Response } from "express"
 
 export const createProject = async (req: Request, res: Response) => {
-  const { title, tags, description, hero_url, images_urls, link, github } =
-    req.body as Project
+  const { title, tags, description, hero_url, images_urls, link, github, key } =
+    req.body as Project & { key: string }
   const result = await create(
     title,
     tags,
@@ -12,7 +12,8 @@ export const createProject = async (req: Request, res: Response) => {
     hero_url,
     images_urls,
     link,
-    github
+    github,
+    key
   )
   if (result.type === "ok") res.status(200).send(result.data)
   else res.status(500).send(result.data)

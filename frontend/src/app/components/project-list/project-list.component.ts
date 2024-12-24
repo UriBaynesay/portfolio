@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { ProjectService } from '../../service/project/project.service';
 import { Project } from '../../interfaces/project';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, RouterLink, TitleCasePipe],
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss',
 })

@@ -8,8 +8,11 @@ export const create = async (
   hero_url: string,
   images_urls: string[],
   link: string,
-  github: string
+  github: string,
+  key: string
 ): Promise<ServiceResult> => {
+  if (key !== process.env.KEY)
+    return { data: "Not authorized to add projects", type: "fail" }
   const prisma = new PrismaClient()
   try {
     await prisma.project.create({

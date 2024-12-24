@@ -1,8 +1,24 @@
-<section class="mt-16 max-w-sm">
-  <h1 class="font-extrabold text-5xl">Hello. <br />I'm Uri.</h1>
-  <h3 class="font-semibold text-xl mt-2">Software developer</h3>
-  <p class="mt-4">
-    I design and build fullstack websites with the latest technology in the
-    field. If you need a passionate software developer, simply send me an email.
-  </p>
+<section class="mt-16 sm:flex sm:justify-center">
+  <div class="max-w-sm mr-8">
+    <h1 class="font-extrabold text-7xl">
+      Hello. <br />I'm <span class="text-blue-300">Uri.</span>
+    </h1>
+    <h3 class="font-semibold text-xl text-blue-300 mt-6">Software developer</h3>
+    <p class="mt-4 tracking-wider">
+      I build web apps from end to end, using the latest technology in the field
+      like @for (tech of stack; track $index) { @if ($index!==0) {, }
+      <span [class]="'border-b-4 border-b-' + tech.color">{{ tech.name }}</span>
+      } and more. If you need a passionate software developer, simply send me an
+      <a class="hover:underline" href="mailto:uri552@gmail.com">email</a>.
+    </p>
+  </div>
+
+  <img
+    class="rounded-md shadow-md"
+    priority
+    ngSrc="/images/hero.webp"
+    alt="Hero image"
+    height="500"
+    width="500"
+  />
 </section>
