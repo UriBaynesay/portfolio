@@ -3,10 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../service/project/project.service';
 import { Project } from '../../interfaces/project';
 import { NgOptimizedImage } from '@angular/common';
+import { ProjectTagsListComponent } from "../../components/project-tags-list/project-tags-list.component";
+
 
 @Component({
   selector: 'app-project-details',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, ProjectTagsListComponent],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss',
 })
