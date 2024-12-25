@@ -1,14 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectService } from '../../service/project/project.service';
 import { Project } from '../../interfaces/project';
-import { NgOptimizedImage } from '@angular/common';
-import { ProjectTagsListComponent } from "../../components/project-tags-list/project-tags-list.component";
-
+import { ProjectService } from '../../services/project/project.service';
+import { ProjectDetailsPreviewComponent } from '../../components/project-details-preview/project-details-preview.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner'
 
 @Component({
   selector: 'app-project-details',
-  imports: [NgOptimizedImage, ProjectTagsListComponent],
+  imports: [ProjectDetailsPreviewComponent, MatProgressSpinner],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss',
 })
