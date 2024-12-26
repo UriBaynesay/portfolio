@@ -1,10 +1,8 @@
-<div class="md:mx-16 xl:mx-80">
-  <app-hero />
-  @defer {
-  <app-project-list />
-  } @loading{
-  <div class="flex justify-center">
-    <mat-progress-spinner mode="indeterminate" />
-  </div>
-  }
+<app-hero />
+@defer {
+<app-project-list />
+} @loading{
+<div class="flex justify-center">
+  <mat-progress-spinner mode="indeterminate" />
 </div>
+}
