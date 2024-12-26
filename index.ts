@@ -10,6 +10,10 @@ const __dirname = import.meta.dirname
 app.use(express.static(path.resolve(__dirname, "browser")))
 app.use("/api/project", projectRoutes)
 
+app.get("/**", (req, res) => {
+  res.sendFile(path.join(__dirname, "browser", "index.html"))
+})
+
 app.listen(port, () => {
   console.log(`Server is up and listening to ${port}`)
 })
