@@ -1,53 +1,51 @@
-<div class="md:mx-16 xl:mx-80">
-  <section class="flex flex-col items-center mt-14">
-    <h1 class="font-bold text-3xl">{{ project.title }}</h1>
-    <p class="max-w-sm mt-10">{{ project.description }}</p>
-    <app-project-tags-list [tags]="project.tags" />
-    <div class="flex gap-3 mt-6">
-      <a [href]="project.link" target="_blank"
-        ><img
-          ngSrc="/images/website.svg"
-          alt="Website link"
-          height="24"
-          width="24"
-      /></a>
-      <a [href]="project.github" target="_blank"
-        ><img
-          ngSrc="/images/github.svg"
-          alt="Website link"
-          height="24"
-          width="24"
-      /></a>
-    </div>
-  </section>
-  <ul class="flex flex-col items-center">
+<section class="flex flex-col items-center mt-14">
+  <h1 class="font-bold text-3xl">{{ project.title }}</h1>
+  <p class="max-w-sm mt-10">{{ project.description }}</p>
+  <app-project-tags-list [tags]="project.tags" />
+  <div class="flex gap-3 mt-6">
+    <a [href]="project.link" target="_blank"
+      ><img
+        ngSrc="/images/website.svg"
+        alt="Website link"
+        height="24"
+        width="24"
+    /></a>
+    <a [href]="project.github" target="_blank"
+      ><img
+        ngSrc="/images/github.svg"
+        alt="Website link"
+        height="24"
+        width="24"
+    /></a>
+  </div>
+</section>
+<ul class="flex flex-col items-center">
+  <img
+    class="md:rounded-xl md:shadow-lg mt-10"
+    [ngSrc]="project.hero_url"
+    alt="Project image hero"
+    height="380"
+    width="680"
+  />
+  @for (projectImage of project.images_urls; track projectImage) {
+  <li class="mt-12">
+    @if (projectImage.includes("mobile")) {
     <img
-      class="md:rounded-xl md:shadow-lg mt-10"
-      [ngSrc]="project.hero_url"
+      class="bg-white px-1 rounded-xl shadow-lg"
+      [ngSrc]="projectImage"
       alt="Project image hero"
-      height="380"
-      width="680"
+      height="527"
+      width="305"
     />
-    @for (projectImage of project.images_urls; track projectImage) {
-    <li class="mt-12">
-      @if (projectImage.includes("mobile")) {
-      <img
-        class="bg-white px-1 rounded-xl shadow-lg"
-        [ngSrc]="projectImage"
-        alt="Project image hero"
-        height="527"
-        width="305"
-      />
-      }@else {
-      <img
-        class="md:rounded-xl md:shadow-lg"
-        [ngSrc]="projectImage"
-        alt="Project image hero"
-        height="340"
-        width="600"
-      />
-      }
-    </li>
+    }@else {
+    <img
+      class="md:rounded-xl md:shadow-lg"
+      [ngSrc]="projectImage"
+      alt="Project image hero"
+      height="340"
+      width="600"
+    />
     }
-  </ul>
-</div>
+  </li>
+  }
+</ul>
