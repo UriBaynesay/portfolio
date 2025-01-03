@@ -23,7 +23,7 @@ const keepServerSpun = () => {
       fetch(project.link)
     })
     console.log("fetched")
-  }, 900000)
+  },300000)
 }
 
 app.listen(port, () => {
