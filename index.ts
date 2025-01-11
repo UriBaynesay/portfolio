@@ -15,18 +15,7 @@ app.get("/**", (req, res) => {
   res.sendFile(path.join(__dirname, "browser", "index.html"))
 })
 
-const keepServerSpun = () => {
-  setInterval(async () => {
-    // sending request to website making sure they stay availble
-    const projects = await read()
-    projects.data.forEach((project: { link: string }) => {
-      fetch(project.link)
-    })
-    console.log("fetched")
-  },300000)
-}
 
 app.listen(port, () => {
-  keepServerSpun()
   console.log(`Server is up and listening to ${port}`)
 })
